@@ -1,6 +1,29 @@
-<div id='container'>
+<div id='shorten'>
 <!-- Your code here -->
-
+  <div class='navigation'>
+    <div class='navigation'>
+      <ul>
+        <li><a href='#/links' class='index'>All Links</a></li>
+        <li><a href='#/shorten' class='create'>Shorten</a></li>
+        <li><a href='/logout' class='logout'>Logout</a></li>
+      </ul>
+    </div>
+    <form name='shortenForm'>
+        <input type='url' ng-model='link.url' name='shortenUrl' required>
+        <input type='submit' value='Shorten' ng-click='addLink(link.url)'>
+        <div ng-show='shortenForm.shortenUrl.$error.url'>Please input a valid url</div>
+    </form>
+    <div class='link'>
+      <img src='/assets/redirect_icon.png'/>
+      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+      <div class='title'>{{link.title}}</div>
+      <div class='original'>{{link.url}}</div>
+      <a href='{{base_url}}/{{code}}'>{{link.base_url}}/{{link.code}}</a>
+    </div>
+    <!-- <img class='spinner' src='/spiffygif_46x46.gif'> -->
+    <!-- <div class='message'></div> -->
+  <div class='navigation'>
 </div>
+
 
 
