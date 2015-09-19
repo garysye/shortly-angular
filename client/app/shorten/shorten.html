@@ -5,7 +5,7 @@
       <ul>
         <li><a href='#/links' class='index'>All Links</a></li>
         <li><a href='#/shorten' class='create'>Shorten</a></li>
-        <li><a href='/logout' class='logout'>Logout</a></li>
+        <li ng-controller='AuthController'><a class='logout' ng-click='signout()'>Signout</a></li>
       </ul>
     </div>
     <form name='shortenForm'>

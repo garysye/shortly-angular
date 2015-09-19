@@ -4,15 +4,20 @@
     <meta charset="utf-8" />
     <title>Shortly</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     <h1>Shortly</h1>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view></div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/ngFx/dist/ngFx.js"></script>
 
     <script src="app/auth/auth.js"></script>
     <script src="app/links/links.js"></script>

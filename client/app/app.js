@@ -3,7 +3,10 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'shortly.navigation',
+  'ngRoute',
+  'ngFx', 
+  'ngAnimate'
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
@@ -17,17 +20,18 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
     })
     .otherwise({
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      redirectTo: '/links',
+      authenticate: true
     });
-    // Your code here
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
@@ -64,3 +68,5 @@ angular.module('shortly', [
     }
   });
 });
+
+

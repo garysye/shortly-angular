@@ -1,6 +1,6 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $window) {
   // Your code here
   var getLinks = function() {
     return $http({
@@ -10,7 +10,7 @@ angular.module('shortly.services', [])
     .then(function (resp) {
       return resp.data;
     });
-  }
+  };
 
   var addLink = function(url) {
     return $http({
@@ -21,11 +21,24 @@ angular.module('shortly.services', [])
     .then(function (resp) {
       return resp.data;
     });
-  }
+  };
+
+  var navToLink = function(link) {
+    return $http({
+      method: 'GET',
+      url:'/api/links/' + link.code,
+      data: link
+    })
+    .then(function(resp) {
+      $window.location.href = resp.data;
+    })
+
+  };
 
   return {
     getLinks: getLinks,
-    addLink: addLink
+    addLink: addLink,
+    navToLink: navToLink
   };
 })
 .factory('Auth', function ($http, $location, $window) {
